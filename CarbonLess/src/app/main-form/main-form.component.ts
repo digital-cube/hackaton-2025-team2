@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-main-form',
@@ -8,5 +10,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-form.component.scss']
 })
 export class MainFormComponent {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }
