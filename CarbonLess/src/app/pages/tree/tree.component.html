@@ -1,0 +1,92 @@
+<div class="page-container">
+  <h1 class="section-title">My Tree 🌳</h1>
+
+  <div nz-row [nzGutter]="[16, 16]">
+    <!-- Tree Visualization -->
+    <div nz-col [nzXs]="24" [nzMd]="16">
+      <nz-card class="tree-card">
+        <div class="tree-visualization">
+          <div class="tree-icon">{{ getTreeEmoji() }}</div>
+          <h2>{{ getTreeState() | titlecase }} Tree</h2>
+          <p class="tree-status">Your tree is {{ monthlyProgress }}% complete!</p>
+        </div>
+      </nz-card>
+    </div>
+
+    <!-- Progress Section -->
+    <div nz-col [nzXs]="24" [nzMd]="8">
+      <nz-card nzTitle="Monthly Goal">
+        <nz-progress
+          [nzPercent]="monthlyProgress"
+          nzType="circle"
+          [nzWidth]="150"
+          nzStrokeColor="#00b244"
+        ></nz-progress>
+        <div class="goal-info">
+          <p><strong>{{ monthlyProgress }}</strong> / {{ monthlyGoal }} points</p>
+          <p class="goal-text">Keep going! You're doing great!</p>
+        </div>
+      </nz-card>
+    </div>
+  </div>
+
+  <!-- Milestones -->
+  <nz-card nzTitle="Milestones" style="margin-top: 24px;">
+    <div class="milestones-container">
+      <div
+        class="milestone-item"
+        *ngFor="let milestone of milestones"
+        [class.achieved]="milestone.achieved"
+      >
+        <div class="milestone-header">
+          <nz-tag [nzColor]="milestone.achieved ? 'success' : 'default'">
+            {{ milestone.percent }}%
+          </nz-tag>
+          <h3>{{ milestone.label }}</h3>
+        </div>
+        <p>{{ milestone.description }}</p>
+        <div class="milestone-progress">
+          <nz-progress
+            [nzPercent]="monthlyProgress >= milestone.percent ? 100 : (monthlyProgress / milestone.percent * 100)"
+            [nzShowInfo]="false"
+            [nzStrokeColor]="milestone.achieved ? '#00b244' : '#d9d9d9'"
+          ></nz-progress>
+        </div>
+      </div>
+    </div>
+  </nz-card>
+
+  <!-- Tree States Legend -->
+  <nz-card nzTitle="Tree Growth Stages" style="margin-top: 24px;">
+    <div nz-row [nzGutter]="[16, 16]">
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6">
+        <div class="tree-stage">
+          <div class="stage-icon">🌱</div>
+          <h4>Seedling (0-25%)</h4>
+          <p>Just starting out</p>
+        </div>
+      </div>
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6">
+        <div class="tree-stage">
+          <div class="stage-icon">🌿</div>
+          <h4>Growing (26-50%)</h4>
+          <p>Leaves appearing</p>
+        </div>
+      </div>
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6">
+        <div class="tree-stage">
+          <div class="stage-icon">🌲</div>
+          <h4>Blooming (51-75%)</h4>
+          <p>Getting stronger</p>
+        </div>
+      </div>
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6">
+        <div class="tree-stage">
+          <div class="stage-icon">🌳</div>
+          <h4>Full Tree (76-100%)</h4>
+          <p>Complete & thriving!</p>
+        </div>
+      </div>
+    </div>
+  </nz-card>
+</div>
