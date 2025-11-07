@@ -1,5 +1,40 @@
-<div class="prompt-dashboard-container">
-  <h1>Prompt Dashboard</h1>
-  <p>Prompt dashboard component works!</p>
-  <input nz-input placeholder="Basic usage" />
+<div class="container mx-auto p-6">
+  <div class="mb-8">
+    <h2 class="text-xl font-semibold mb-4">Select Vehicle Type</h2>
+    <form [formGroup]="vehicleForm" (ngSubmit)="submitVehicle()" class="flex gap-4 items-end">
+      <div class="flex-1">
+        <nz-select
+          formControlName="vehicle"
+          nzPlaceHolder="Choose a vehicle"
+          class="w-full">
+          <nz-option
+            *ngFor="let vehicle of vehicles"
+            [nzLabel]="vehicle.label"
+            [nzValue]="vehicle.value">
+          </nz-option>
+        </nz-select>
+      </div>
+      <button nz-button nzType="primary" type="submit">Submit Vehicle</button>
+    </form>
+  </div>
+
+  <div>
+    <h2 class="text-xl font-semibold mb-4">Select Food Type</h2>
+    <form [formGroup]="foodForm" (ngSubmit)="submitFood()" class="flex gap-4 items-end">
+      <div class="flex-1">
+        <nz-select
+          formControlName="food"
+          nzPlaceHolder="Search and choose a food"
+          nzShowSearch
+          class="w-full">
+          <nz-option
+            *ngFor="let food of foods"
+            [nzLabel]="food.label"
+            [nzValue]="food.value">
+          </nz-option>
+        </nz-select>
+      </div>
+      <button nz-button nzType="primary" type="submit">Submit Food</button>
+    </form>
+  </div>
 </div>
