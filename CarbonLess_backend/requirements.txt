@@ -1,1 +1,2 @@
 fastapi[standard]
+tortoise-orm==0.21.3
