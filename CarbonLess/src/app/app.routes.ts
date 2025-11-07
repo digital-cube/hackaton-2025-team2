@@ -20,7 +20,8 @@ export const routes: Routes = [
       { path: 'tree', component: TreeComponent },
       { path: 'leaderboard', component: PromptDashboardComponent }, // Placeholder for now
       { path: 'statistics', component: PromptDashboardComponent }, // Placeholder for now
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: '', redirectTo: '/home', pathMatch: 'full' }]
+  },
   { path: 'main-form', component: MainFormComponent, canActivate: [authGuard] },
   { path: 'prompt-dashboard', component: PromptDashboardComponent, canActivate: [authGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
