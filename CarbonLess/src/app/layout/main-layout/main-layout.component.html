@@ -1,0 +1,85 @@
+<nz-layout class="main-layout">
+  <nz-header>
+    <div class="header-content">
+      <div class="logo">Carbon-less</div>
+
+      <!-- Desktop Menu -->
+      <ul nz-menu nzMode="horizontal" nzTheme="dark" class="desktop-menu">
+        <li nz-menu-item routerLink="/home" routerLinkActive="ant-menu-item-selected">
+          <i nz-icon nzType="home"></i>
+          Home
+        </li>
+        <li nz-menu-item routerLink="/categories" routerLinkActive="ant-menu-item-selected">
+          <i nz-icon nzType="form"></i>
+          Categories
+        </li>
+        <li nz-menu-item routerLink="/tree" routerLinkActive="ant-menu-item-selected">
+          <i nz-icon nzType="apartment"></i>
+          My Tree
+        </li>
+        <li nz-menu-item routerLink="/leaderboard" routerLinkActive="ant-menu-item-selected">
+          <i nz-icon nzType="trophy"></i>
+          Leaderboard
+        </li>
+        <li nz-menu-item routerLink="/statistics" routerLinkActive="ant-menu-item-selected">
+          <i nz-icon nzType="bar-chart"></i>
+          Statistics
+        </li>
+      </ul>
+
+      <div class="header-actions">
+        <button nz-button (click)="logout()" class="logout-btn desktop-only">
+          <i nz-icon nzType="logout"></i>
+          Logout
+        </button>
+
+        <!-- Mobile Hamburger -->
+        <button nz-button nzType="text" nzShape="circle" class="hamburger-btn" (click)="openDrawer()">
+          <i nz-icon nzType="menu"></i>
+        </button>
+      </div>
+    </div>
+  </nz-header>
+
+  <!-- Mobile Drawer -->
+  <nz-drawer
+    [nzVisible]="isDrawerVisible"
+    nzPlacement="right"
+    nzTitle="Menu"
+    (nzOnClose)="closeDrawer()"
+    [nzWidth]="280"
+  >
+    <ng-container *nzDrawerContent>
+      <div class="mobile-menu">
+        <div class="menu-item" (click)="navigate('/home')">
+          <i nz-icon nzType="home"></i>
+          <span>Home</span>
+        </div>
+        <div class="menu-item" (click)="navigate('/categories')">
+          <i nz-icon nzType="form"></i>
+          <span>Categories</span>
+        </div>
+        <div class="menu-item" (click)="navigate('/tree')">
+          <i nz-icon nzType="apartment"></i>
+          <span>My Tree</span>
+        </div>
+        <div class="menu-item" (click)="navigate('/leaderboard')">
+          <i nz-icon nzType="trophy"></i>
+          <span>Leaderboard</span>
+        </div>
+        <div class="menu-item" (click)="navigate('/statistics')">
+          <i nz-icon nzType="bar-chart"></i>
+          <span>Statistics</span>
+        </div>
+        <div class="menu-item logout-item" (click)="logout()">
+          <i nz-icon nzType="logout"></i>
+          <span>Logout</span>
+        </div>
+      </div>
+    </ng-container>
+  </nz-drawer>
+
+  <nz-content>
+    <router-outlet />
+  </nz-content>
+</nz-layout>

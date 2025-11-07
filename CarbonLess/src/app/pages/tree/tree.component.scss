@@ -1,0 +1,134 @@
+// Make all cards in the row equal height
+::ng-deep nz-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .ant-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.tree-card {
+  background: linear-gradient(135deg, var(--color-secondary-green) 0%, var(--color-primary-green) 100%);
+  color: var(--color-white);
+  border: none;
+  min-height: 400px;
+
+  ::ng-deep .ant-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.tree-visualization {
+  text-align: center;
+
+  .tree-icon {
+    font-size: 200px;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    color: var(--color-white);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .tree-status {
+    color: var(--color-white);
+    font-size: 18px;
+    opacity: 0.9;
+  }
+}
+
+.goal-info {
+  text-align: center;
+  margin-top: 16px;
+
+  p {
+    margin: 8px 0;
+  }
+
+  strong {
+    color: var(--color-primary-green);
+    font-size: 24px;
+  }
+
+  .goal-text {
+    color: var(--color-text-light);
+    font-style: italic;
+  }
+}
+
+.milestones-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.milestone-item {
+  padding: 16px;
+  border: 2px solid #f0f0f0;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+
+  &.achieved {
+    border-color: var(--color-primary-green);
+    background-color: #f6ffed;
+  }
+
+  .milestone-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+
+    h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text-dark);
+    }
+  }
+
+  p {
+    color: var(--color-text-light);
+    margin-bottom: 12px;
+  }
+
+  .milestone-progress {
+    margin-top: 12px;
+  }
+}
+
+.tree-stage {
+  text-align: center;
+  padding: 16px;
+  border-radius: var(--border-radius);
+  background: var(--color-white);
+  box-shadow: var(--box-shadow);
+
+  .stage-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 14px;
+  }
+}

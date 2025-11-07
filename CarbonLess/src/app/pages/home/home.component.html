@@ -1,0 +1,113 @@
+<div class="page-container">
+  <div class="welcome-section">
+    <h1>Welcome back, {{ userName }}! 🌱</h1>
+    <p>Let's make a difference together</p>
+  </div>
+
+  <!-- Stats Overview Cards -->
+  <div nz-row [nzGutter]="[16, 16]">
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6">
+      <nz-card class="stat-card">
+        <nz-statistic
+          [nzValue]="monthlyProgress"
+          nzTitle="Monthly Progress"
+          nzSuffix="%"
+          [nzValueStyle]="{ color: '#00b244' }"
+        ></nz-statistic>
+        <nz-progress
+          [nzPercent]="monthlyProgress"
+          nzStrokeColor="#00b244"
+          [nzShowInfo]="false"
+        ></nz-progress>
+      </nz-card>
+    </div>
+
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6">
+      <nz-card class="stat-card">
+        <nz-statistic
+          [nzValue]="currentRank"
+          nzTitle="Your Rank"
+          nzPrefix="#"
+          [nzValueStyle]="{ color: '#7931e8' }"
+        ></nz-statistic>
+      </nz-card>
+    </div>
+
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6">
+      <nz-card class="stat-card">
+        <nz-statistic
+          [nzValue]="totalPoints"
+          nzTitle="Total Points"
+          [nzValueStyle]="{ color: '#00b244' }"
+        ></nz-statistic>
+      </nz-card>
+    </div>
+
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6">
+      <nz-card class="stat-card">
+        <nz-statistic
+          [nzValue]="treeHealth"
+          nzTitle="Tree Status"
+          [nzValueStyle]="{ color: '#76f895' }"
+        ></nz-statistic>
+      </nz-card>
+    </div>
+  </div>
+
+  <!-- Tree Preview & Recent Activity -->
+  <div nz-row [nzGutter]="[16, 16]" style="margin-top: 24px;">
+    <div nz-col [nzXs]="24" [nzMd]="12">
+      <nz-card nzTitle="Your Tree" class="tree-card">
+        <div class="tree-preview">
+          <i nz-icon nzType="apartment" nzTheme="outline" style="font-size: 120px; color: #00b244;"></i>
+          <p>Your tree is {{ monthlyProgress }}% grown!</p>
+          <button nz-button nzType="primary" routerLink="/tree">View Full Tree</button>
+        </div>
+      </nz-card>
+    </div>
+
+    <div nz-col [nzXs]="24" [nzMd]="12">
+      <nz-card nzTitle="Recent Activity" class="activity-card">
+        <div class="activity-list" *ngIf="recentActivities.length > 0">
+          <div class="activity-item" *ngFor="let activity of recentActivities">
+            <i nz-icon [nzType]="activity.icon" nzTheme="outline" class="activity-icon"></i>
+            <div class="activity-text">
+              <p>{{ activity.text }}</p>
+              <span class="activity-points">{{ activity.points }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="no-activity" *ngIf="recentActivities.length === 0">
+          <p>No recent activity</p>
+          <a routerLink="/categories">Log activity</a>
+        </div>
+      </nz-card>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions" style="margin-top: 24px;">
+    <nz-card nzTitle="Quick Actions">
+      <div nz-row [nzGutter]="[16, 16]">
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="8">
+          <button nz-button nzBlock nzSize="large" routerLink="/categories">
+            <i nz-icon nzType="form"></i>
+            Fill Out Categories
+          </button>
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="8">
+          <button nz-button nzBlock nzSize="large" routerLink="/leaderboard">
+            <i nz-icon nzType="trophy"></i>
+            Check Leaderboard
+          </button>
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="8">
+          <button nz-button nzBlock nzSize="large" routerLink="/statistics">
+            <i nz-icon nzType="bar-chart"></i>
+            View Statistics
+          </button>
+        </div>
+      </div>
+    </nz-card>
+  </div>
+</div>
