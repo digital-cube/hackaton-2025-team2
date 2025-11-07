@@ -1,4 +1,15 @@
 <div class="main-form-container">
+  <form [formGroup]="mainForm" (ngSubmit)="onSubmit()" class="flex flex-col items-center">
+    <label for="location">Where do you live?</label>
+    <input nz-input id="location" type="text" formControlName="location">
+    <label for="transport">Main system of transport?</label>
+    <input nz-input id="transport" type="text" formControlName="transport">
+    <label for="days">Number of days working from home?</label>
+    <input nz-input id="days" type="text" formControlName="days">
+    <button type="submit">Submit</button>
+  </form>
   <h1>Main Form</h1>
   <p>Main form component works!</p>
+
+  <button (click)="logout()">Logout</button>
 </div>

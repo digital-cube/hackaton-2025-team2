@@ -1,0 +1,47 @@
+<div>
+  <h2>Login</h2>
+  <form nz-form (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-form-label>Username</nz-form-label>
+      <nz-form-control>
+        <input
+          nz-input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          placeholder="Enter username"
+          required
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>Password</nz-form-label>
+      <nz-form-control>
+        <input
+          nz-input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter password"
+          required
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button nzType="primary" type="submit">Login</button>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-alert
+      *ngIf="errorMessage"
+      nzType="error"
+      [nzMessage]="errorMessage"
+      nzShowIcon
+    ></nz-alert>
+  </form>
+</div>
