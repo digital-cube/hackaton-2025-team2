@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainFormComponent } from './main-form/main-form.component';
 import { PromptDashboardComponent } from './prompt-dashboard/prompt-dashboard.component';
+import { LeafletMapComponent } from './leaflet-map/leaflet-map';
 import { LoginComponent } from './auth/login/login.component';
 import { authGuard } from './auth/auth.guard';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
@@ -19,7 +20,10 @@ export const routes: Routes = [
       { path: 'tree', component: TreeComponent },
       { path: 'leaderboard', component: PromptDashboardComponent }, // Placeholder for now
       { path: 'statistics', component: PromptDashboardComponent }, // Placeholder for now
-      { path: '', redirectTo: '/home', pathMatch: 'full' }
-    ]
-  }
+      { path: '', redirectTo: '/home', pathMatch: 'full' }]
+  },
+  { path: 'main-form', component: MainFormComponent, canActivate: [authGuard] },
+  { path: 'prompt-dashboard', component: PromptDashboardComponent, canActivate: [authGuard] },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'leaflet', component: LeafletMapComponent, canActivate: [authGuard] }
 ];
