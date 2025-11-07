@@ -1,5 +1,5 @@
 <div class="main-form-container">
-  <form [formGroup]="mainForm" (ngSubmit)="onSubmit()" class="form-container">
+  <form [formGroup]="mainForm" (ngSubmit)="onSubmit()" class="flex flex-col items-center">
     <label for="location">Where do you live?</label>
     <input nz-input id="location" type="text" formControlName="location">
     <label for="transport">Main system of transport?</label>

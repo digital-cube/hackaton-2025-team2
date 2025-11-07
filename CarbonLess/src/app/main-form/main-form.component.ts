@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormControl, ReactiveFormsModule} from '@angular/forms';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 @Component({
   selector: 'app-main-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NzInputModule],
   templateUrl: './main-form.component.html',
   styleUrls: ['./main-form.component.scss']
 })
