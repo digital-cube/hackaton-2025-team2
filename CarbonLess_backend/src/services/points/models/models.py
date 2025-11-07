@@ -1,6 +1,6 @@
 from enum import Enum
 
-from CarbonLess_backend.src.shared.models.base_model import BaseModel
+from src.shared.models.base_model import BaseModel
 from tortoise import fields
 
 class ActionTypeEnum(Enum, str):
