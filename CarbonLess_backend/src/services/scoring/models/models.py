@@ -3,7 +3,7 @@ from enum import Enum
 from src.shared.models.base_model import BaseModel
 from tortoise import fields
 
-class ActionTypeEnum(Enum, str):
+class ActionTypeEnum(str, Enum):
     TRANSPORTATION = "transportation"
     RECYCLING = "recycling"
     ENERGY_SAVING = "energy_saving"
@@ -16,7 +16,7 @@ class ActionTypeEnum(Enum, str):
 
 class UsersPoints(BaseModel):
 
-    user_id = fields.ForeignKeyField("models.User", related_name="points_records",)
+    user_id = fields.ForeignKeyField("models.Users", related_name="points_records",)
     points = fields.IntField(default=0)
     action_type = fields.CharField(max_length=100)
     c02_emission = fields.FloatField(null=True)

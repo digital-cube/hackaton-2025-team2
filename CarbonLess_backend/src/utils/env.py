@@ -43,3 +43,9 @@ class DB(BaseEnv):
 
     class Config:
         prefix = "DB_"
+
+class ENV(BaseEnv):
+    JWT_SECRET: str = None
+
+    class Config:
+        prefix = "ENV_"

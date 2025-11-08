@@ -19,7 +19,7 @@ def get_tortoise_orm_config():
             handlers_file = service / "models" / "models.py"
             if handlers_file.exists():
                 try:
-                    module_name = f"app.src.{service.name}.models.models"
+                    module_name = f"src.services.{service.name}.models.models"
                     module = importlib.import_module(module_name)
                     if module:
                         models_list.append(module_name)
@@ -56,3 +56,6 @@ def get_tortoise_orm_config():
     }
 
     return TORTOISE_ORM
+
+async def close_db():
+    await Tortoise.close_connections()
